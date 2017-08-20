@@ -3,15 +3,13 @@ Oracle Express Edition 11g Release 2 [Docker](https://www.docker.com) image
 [![](https://images.microbadger.com/badges/image/akarak/oracle-xe-11g.svg)](https://microbadger.com/images/akarak/oracle-xe-11g "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/akarak/oracle-xe-11g.svg)](https://microbadger.com/images/akarak/oracle-xe-11g "Get your own version badge on microbadger.com")
 
-<a name="whats_inside"></a>
 ## What's inside the image?
 
 | Component        | Remarks |
 | ---------------- | ------------------- |
-| Ubuntu 16.04 LTS | The base system. |
-| Oracle Express Edition 11g Release 2 | |
+| Ubuntu 16.04 LTS | The base OS version |
+| Oracle Express Edition 11g Release 2 | The Oracle DB version |
 
-<a name="using"></a>
 ## Using docker-oracle-xe-11g
 
 Installation:
