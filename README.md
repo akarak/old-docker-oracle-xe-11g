@@ -6,9 +6,7 @@ docker-oracle-xe-11g
 
 Oracle Express Edition 11g Release 2 on Ubuntu 16.04 LTS
 
-This **Dockerfile** is a [trusted build](https://registry.hub.docker.com/u/akarak/oracle-xe-11g/) of [Docker Registry](https://registry.hub.docker.com/).
-
-### Installation(with Ubuntu 16.04)
+### Installation (with Ubuntu 16.04)
 ```
 docker pull akarak/oracle-xe-11g
 ```
@@ -42,11 +40,6 @@ username: system
 password: oracle
 ```
 
-Password for SYS & SYSTEM
-```
-oracle
-```
-
 Connect to Oracle Application Express web management console with following settings:
 ```
 http://localhost:8080/apex
@@ -55,15 +48,14 @@ user: ADMIN
 password: oracle
 ```
 
-
-Auto import of sh sql and dmp files
+Auto import of sh sql and dmp files:
 ```
 docker run -d -p 8080:8080 -p 1521:1521 -v /my/oracle/data:/u01/app/oracle -v /my/oracle/init/sh_sql_dmp_files:/docker-entrypoint-initdb.d akarak/oracle-xe-11g
 ```
 In case of using DMP imports dump file should be named like ${IMPORT_SCHEME_NAME}.dmp. User credentials for imports are ${IMPORT_SCHEME_NAME}/${IMPORT_SCHEME_NAME}.
 
 
-Support custom DB Initialization
+Custom DB Initialization:
 ```
 # Dockerfile
 FROM akarak/oracle-xe-11g
