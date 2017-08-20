@@ -1,12 +1,19 @@
 FROM ubuntu:16.04
 
-MAINTAINER Wei-Ming Wu <wnameless@gmail.com>
+MAINTAINER Alexey Karak <alexey.karak@gmail.com>
 
 ADD assets /assets
 RUN /assets/setup.sh
 
-EXPOSE 22
+ENV ORACLE_HOME /u01/app/oracle/product/11.2.0/xe
+ENV PATH $ORACLE_HOME/bin:$PATH
+ENV ORACLE_SID XE
+ENV DEFAULT_SYS_PASS oracle
+ENV ORACLE_ALLOW_REMOTE true
+
 EXPOSE 1521
 EXPOSE 8080
+VOLUME ["/u01/app/oracle"]
 
-CMD /usr/sbin/startup.sh && /usr/sbin/sshd -D
+ENTRYPOINT ["/assets/startup.sh"]
+CMD [""]
