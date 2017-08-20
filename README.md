@@ -5,7 +5,7 @@ Oracle Express Edition 11g Release 2 on Ubuntu 16.04 LTS
 [![](https://images.microbadger.com/badges/version/akarak/oracle-xe-11g.svg)](https://microbadger.com/images/akarak/oracle-xe-11g "Get your own version badge on microbadger.com")
 
 
-Installation
+Installation:
 ```
 docker pull akarak/oracle-xe-11g
 ```
