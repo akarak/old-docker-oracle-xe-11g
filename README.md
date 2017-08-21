@@ -21,26 +21,17 @@ docker pull akarak/oracle-xe-11g
 
 Run with 8080 and 1521 ports opened:
 ```
-docker run -d -p 8080:8080 -p 1521:1521 akarak/oracle-xe-11g
+docker run -d -p 8080:8080 -p 1521:1521 --name ora akarak/oracle-xe-11g
 ```
 
 Run with data on host and reuse it:
 ```
-docker run -d -p 8080:8080 -p 1521:1521 -v /my/oracle/data:/u01/app/oracle akarak/oracle-xe-11g
+docker run -d -p 8080:8080 -p 1521:1521 --name ora -v /my/oracle/data:/u01/app/oracle akarak/oracle-xe-11g
 ```
 
 Auto import of sh sql and dmp files:
 ```
-docker run -d -p 8080:8080 -p 1521:1521 -v /my/oracle/data:/u01/app/oracle -v /my/oracle/init/sh_sql_dmp_files:/docker-entrypoint-initdb.d akarak/oracle-xe-11g
-```
-In case of using DMP imports dump file should be named like ${IMPORT_SCHEME_NAME}.dmp. User credentials for imports are ${IMPORT_SCHEME_NAME}/${IMPORT_SCHEME_NAME}.
-
-Custom DB Initialization:
-```
-# Dockerfile
-FROM akarak/oracle-xe-11g
-
-ADD init.sql /docker-entrypoint-initdb.d/
+docker run -d -p 8080:8080 -p 1521:1521 --name ora -v /my/oracle/data:/u01/app/oracle -v /my/oracle/scripts/init.sql:/docker-entrypoint-initdb.d akarak/oracle-xe-11g
 ```
 
 ### Environment variables
@@ -48,7 +39,7 @@ ADD init.sql /docker-entrypoint-initdb.d/
 | Name        | Default value | Remarks |
 | ---------------- | ------------------- | ------------------- |
 | ORACLE_ALLOW_REMOTE | false | Set true, if you want the database to be connected remotely |
-| DEFAULT_SYS_PASS | oracle | Custom SYS password |
+| ORACLE_CUSTOM_SYS_PASS | oracle | Custom SYS password |
 
 ### Connection info
 
