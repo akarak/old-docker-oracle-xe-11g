@@ -22,6 +22,4 @@ mv /assets/startup.sh /usr/sbin/startup.sh &&
 chmod +x /usr/sbin/startup.sh &&
 
 # Remove installation files
-rm -r /assets/
-
-apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
+apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/* && rm -r /assets/
