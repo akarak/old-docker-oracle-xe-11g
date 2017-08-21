@@ -31,10 +31,10 @@ else
 	mv /u01/app/oracle-product/11.2.0/xe/dbs /u01/app/oracle/dbs
 	ln -s /u01/app/oracle/dbs /u01/app/oracle-product/11.2.0/xe/dbs
 
-	printf 8080\\n1521\\n${DEFAULT_SYS_PASS}\\n${DEFAULT_SYS_PASS}\\ny\\n | service oracle-xe configure
+	printf 8080\\n1521\\n${ORACLE_CUSTOM_SYS_PASS}\\n${ORACLE_CUSTOM_SYS_PASS}\\ny\\n | service oracle-xe configure
 	echo "Setting 'sys/system' passwords"
-	echo  alter user sys identified by \"$DEFAULT_SYS_PASS\"\; | su oracle -s /bin/bash -c "$ORACLE_HOME/bin/sqlplus -s / as sysdba" > /dev/null 2>&1
-	echo  alter user system identified by \"$DEFAULT_SYS_PASS\"\; | su oracle -s /bin/bash -c "$ORACLE_HOME/bin/sqlplus -s / as sysdba" > /dev/null 2>&1
+	echo  alter user sys identified by \"$ORACLE_CUSTOM_SYS_PASS\"\; | su oracle -s /bin/bash -c "$ORACLE_HOME/bin/sqlplus -s / as sysdba" > /dev/null 2>&1
+	echo  alter user system identified by \"$ORACLE_CUSTOM_SYS_PASS\"\; | su oracle -s /bin/bash -c "$ORACLE_HOME/bin/sqlplus -s / as sysdba" > /dev/null 2>&1
 
 	echo "Database initialized."
 	echo "Please visit http://#containeer:8080/apex to proceed with configuration."
