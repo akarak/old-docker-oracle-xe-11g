@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-MAINTAINER Alexey Karak <alexey.karak@gmail.com>
+LABEL maintainer="Alexey Karak <alexey.karak@gmail.com>"
 
 ADD assets /assets
 RUN /assets/setup.sh
